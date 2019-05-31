@@ -1,0 +1,183 @@
+body {
+  width: auto;
+  height: 100%;
+  display: flex;
+  flex: auto;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, black 25%, transparent 25%) -50px 0, linear-gradient(225deg, black 25%, transparent 25%) -50px 0, linear-gradient(315deg, black 25%, transparent 25%), linear-gradient(45deg, black 25%, transparent 25%);
+  background-size: 2em 2em;
+  background-color: #232323;
+  font-family: monospace;
+}
+body div {
+  width: 100%;
+  height: 100%;
+  flex: auto;
+  flex-flow: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body header {
+  background: white;
+  text-align: center;
+  width: 25%;
+  height: auto;
+  border-radius: 15px 15px 0 0;
+  background: url(public/arches.png);
+  background-color: white;
+}
+body header svg {
+  width: 33%;
+  height: 33%;
+  margin: 1%;
+}
+body header #moto {
+  width: auto;
+  margin: 0;
+  margin-bottom: 1%;
+}
+body main {
+  background: url(public/arches.png);
+  background-color: white;
+  width: 100%;
+  flex: auto;
+  flex-flow: row;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  border-radius: 15px;
+}
+body main aside {
+  width: 20%;
+  margin: 1.5%;
+  padding: 1%;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15px;
+  font-size: 125%;
+}
+body main aside nav div b {
+  font-size: 125%;
+}
+body main aside nav div button {
+  margin-top: 5%;
+  padding: 5%;
+  font-size: 75%;
+}
+body main #window {
+  align-self: center;
+  width: 80%;
+  padding: 1%;
+  margin: 1.5%;
+  flex: auto;
+  flex-flow: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 125%;
+}
+body main #window form {
+  display: flex;
+  flex: auto;
+  flex-flow: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2%;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15px;
+  width: 60%;
+}
+body main #window form b {
+  padding: 5%;
+}
+body main #window form input {
+  margin-top: 1%;
+  font-size: 112.5%;
+  padding: 1%;
+  width: 66%;
+}
+body main #window form textarea {
+  margin-top: 1%;
+  width: 66%;
+  font-size: 112.5%;
+  padding: 1%;
+  resize: none;
+  height: auto;
+  overflow: auto;
+}
+body main #window form button {
+  margin-top: 3%;
+  padding: 2.5%;
+  font-size: 105%;
+}
+body main #window form .error-msg {
+  color: red;
+  font-weight: bold;
+  font-size: large;
+}
+body main #window form #drop_zone {
+  width: 40%;
+  margin-top: 3%;
+  border: 2px solid black;
+}
+body main #window form #drop_zone p {
+  width: 100%;
+}
+body main #window form #drop_zone p b {
+  display: flex;
+  justify-content: center;
+}
+body main #window div ul {
+  list-style-type: none;
+}
+body main #window b {
+  padding-bottom: 1%;
+  font-size: 150%;
+}
+body main #window #buttons {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  flex-flow: row;
+  justify-content: space-around;
+}
+body main #window #buttons button {
+  width: 15%;
+  font-size: 100%;
+  padding: 1%;
+}
+body main #window #buttons #invisible {
+  visibility: hidden;
+}
+body main #window #buttons #delete {
+  width: 15%;
+  padding: 1%;
+  font-size: 100%;
+  font-weight: bold;
+  color: red;
+}
+body main #window h1 {
+  font-size: 200%;
+}
+body main #window #notes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+body main #window #notes a {
+  padding: 0.5%;
+  font-size: 125%;
+}
+body footer {
+  background: url(public/arches.png);
+  background-color: white;
+  text-align: center;
+  width: auto;
+  padding: 0 2% 0 2%;
+  border-radius: 0 0 15px 15px;
+}
+/*# sourceMappingURL=style.css.map */
