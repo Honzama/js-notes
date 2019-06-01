@@ -9,6 +9,7 @@ module.exports = {
     mode: 'development',
     devtool: 'inline-source-map',
     devServer: {
+        publicPath: '/',
         historyApiFallback: true,
     },
     module: {
