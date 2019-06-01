@@ -11,12 +11,14 @@ module.exports = {
     mode: 'development',
     devtool: 'inline-source-map',
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'index_bundle.js',
+        path: __dirname,
+        filename: 'webpack-bundle.js',
         publicPath: '/'
     },
     devServer: {
         historyApiFallback: true,
+        inline: true,
+        port: process.env.PORT || 8080
     },
     module: {
         rules: [
