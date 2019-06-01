@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "Javascript single page application for taking notes.",
   "main": "index.js",
+  "homepage": "https://js-notes.herokuapp.com/",
   "scripts": {
     "postinstall": "webpack --config ./webpack.config.js",
     "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production"
+    "build": "webpack --mode development"
   },
   "author": "Jan Macek",
   "license": "MIT",
