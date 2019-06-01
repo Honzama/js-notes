@@ -1,3 +1,4 @@
+const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 const htmlPlugin = new HtmlWebPackPlugin({
@@ -6,10 +7,15 @@ const htmlPlugin = new HtmlWebPackPlugin({
 });
 
 module.exports = {
+    entry: './src/index.js',
     mode: 'development',
     devtool: 'inline-source-map',
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'index_bundle.js',
+        publicPath: '/'
+    },
     devServer: {
-        publicPath: '/',
         historyApiFallback: true,
     },
     module: {
