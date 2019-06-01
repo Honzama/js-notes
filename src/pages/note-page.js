@@ -2,6 +2,7 @@ import React from 'react'
 import { Redirect } from 'react-router';
 import queryString from 'query-string';
 import {getNotesByID, getUserByID, deleteNode} from "../db";
+import uuid from "uuid/v4";
 
 class NotePage extends React.Component {
     state = {
@@ -30,8 +31,8 @@ class NotePage extends React.Component {
             if(this.props.main.state.username === user.username) {
                 return(
                     [
-                        <b>{note.title}</b>,
-                        note.text
+                        <b id={"title"} key={uuid()}>{note.title}</b>,
+                        <span id={"text"} key={uuid()}>{note.text}</span>
                     ]
                 );
             }

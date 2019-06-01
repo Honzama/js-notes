@@ -4,6 +4,7 @@ import { Redirect } from 'react-router';
 import { addNode, editNode } from "../db";
 import queryString from 'query-string';
 import {getNotesByID, getUserByID} from "../db";
+import uuid from "uuid/v4";
 
 class NoteFormPage extends React.Component {
 
@@ -209,7 +210,7 @@ class NoteFormPage extends React.Component {
                             onChange={this.handleInputChange}
                         />
                         <textarea
-                            fluid
+                            key={uuid()}
                             name="text"
                             placeholder="Text"
                             value={this.state.text}
