@@ -90,7 +90,7 @@ class RegistrationPage extends React.Component {
                             placeholder="Email"
                             onChange={this.handleInputChange}
                         />
-                        <Button type="submit">Registrate</Button>
+                        <Button type="submit">Register</Button>
                         {this.errorMsg()}
                     </Segment>
                 </Form>
