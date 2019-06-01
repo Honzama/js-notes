@@ -32,7 +32,15 @@ module.exports = {
                         presets: ["es2015", "stage-0", "react"]
                     }
                 }
-            }
+            },
+            {
+                test: /\.less$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'less-loader'
+                ],
+            },
         ]
     },
     plugins: [htmlPlugin]
