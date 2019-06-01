@@ -3,7 +3,7 @@ import { Button, Form, Segment } from 'semantic-ui-react'
 import { Redirect } from 'react-router';
 import { addNode, editNode } from "../db";
 import queryString from 'query-string';
-import {getNotesByID, getUserByID} from "../db";
+import {getNotesByID, getUserByID, getNotesByUsername} from "../db";
 import uuid from "uuid/v4";
 
 class NoteFormPage extends React.Component {
@@ -106,12 +106,12 @@ class NoteFormPage extends React.Component {
 
     textToElements = (text) => {
         let elements = new Array();
-        let textLines = text.split("\n");
+        let textLines = text.split(/\r?\n/);
 
         for(let i = 0; i < textLines.length; i++) {
             elements.push(textLines[i]);
             if(i+1 < textLines.length)
-                elements.push(<br/>);
+                elements.push(<br key={uuid()}/>);
         }
         return elements;
     };
@@ -143,7 +143,16 @@ class NoteFormPage extends React.Component {
         event.preventDefault();
         if(this.state.title && this.state.text) {
             if((this.state.id === undefined) || (this.state.id === null) || (this.state.id === "") || !this.state.exist) {
-                addNode(this.state.title, this.textToElements(this.state.text), this.props.main.state.username);
+                addNode(this.state.title, this.state.text, this.props.main.state.username);
+
+                let notes = getNotesByUsername(this.props.main.state.username);
+                for(let i = 0; i < notes.length; i++) {
+                    if(notes[i].title === this.state.title && notes[i].text === this.state.text) {
+                        this.state.id = notes[i].id;
+                        break;
+                    }
+                }
+
                 this.state.added = true;
                 this.forceUpdate();
             } else {
@@ -172,7 +181,7 @@ class NoteFormPage extends React.Component {
         }
 
         if(this.state.added) {
-            return <Redirect push to="/notes" />;
+            return <Redirect push to={"/note?id="+this.state.id} />;
         }
 
         this.loadId();
@@ -210,7 +219,7 @@ class NoteFormPage extends React.Component {
                             onChange={this.handleInputChange}
                         />
                         <textarea
-                            key={uuid()}
+                            key={"textarea"}
                             name="text"
                             placeholder="Text"
                             value={this.state.text}

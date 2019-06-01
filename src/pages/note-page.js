@@ -29,12 +29,15 @@ class NotePage extends React.Component {
         if(!(note === null) && !(note === undefined)) {
             const user = getUserByID(note.user_id);
             if(this.props.main.state.username === user.username) {
-                return(
-                    [
-                        <b id={"title"} key={uuid()}>{note.title}</b>,
-                        <span id={"text"} key={uuid()}>{note.text}</span>
-                    ]
-                );
+                let elements = new Array([<b id={"title"} key={uuid()}>{note.title}</b>]);
+                let textLines = note.text.split(/\r?\n/);
+
+                for(let i = 0; i < textLines.length; i++) {
+                    elements.push(textLines[i]);
+                    if(i+1 < textLines.length)
+                        elements.push(<br key={uuid()}/>);
+                }
+                return(elements);
             }
         }
         this.state.exist = false;
@@ -88,7 +91,7 @@ class NotePage extends React.Component {
                 {this.getNote()}
 
                 <div id={"buttons"}>
-                    <button id={"invisible"} disabled></button>
+                    <button id={"invisible"} disabled>""</button>
                     <button id={"delete"} onClick={this.clickDelete}>Delete</button>
                 </div>
             </div>
