@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Form, Segment } from 'semantic-ui-react'
 import { Redirect } from 'react-router';
-import {addUser} from "../db";
+import {addUser, getNotesByUsername} from "../db";
 
 class RegistrationPage extends React.Component {
 
@@ -20,12 +20,18 @@ class RegistrationPage extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault();
         if(this.state.username && this.state.password && this.state.email) {
-            if(addUser(this.state.username, this.state.password, this.state.email)) {
-                this.state.registrated = true;
-                this.props.main.forceUpdate();
+            if(getNotesByUsername(this.state.username).length === 0) {
+                if(addUser(this.state.username, this.state.password, this.state.email)) {
+                    this.state.registrated = true;
+                    this.props.main.forceUpdate();
+                } else {
+                    this.state.error = true;
+                    this.state.error_msg = "Invalid username, password or email, please try again.";
+                    this.forceUpdate();
+                }
             } else {
                 this.state.error = true;
-                this.state.error_msg = "Invalid username, password or email, please try again.";
+                this.state.error_msg = "Username is already taken.";
                 this.forceUpdate();
             }
         } else {
