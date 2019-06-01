@@ -1,6 +1,6 @@
 import React from 'react'
 import { Redirect } from 'react-router';
-import { getUserByUsername } from "../api";
+import { getUserByUsername } from "../db";
 
 class AccountPage extends React.Component {
 

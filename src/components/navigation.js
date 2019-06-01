@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import uuid from "uuid/v4";
+import {Header} from "./index";
 
 class Navigation extends React.Component {
 
@@ -22,16 +24,16 @@ class Navigation extends React.Component {
         if(this.props.main.state.logged) {
             return (
                 [
-                    <li><Link to='/account'>Account</Link></li>,
-                    <li><Link to='/notes'>Notes</Link></li>,
-                    <li><Link to='/noteform'>Add Note</Link></li>
+                    <li key={uuid()}><Link to='/account'>Account</Link></li>,
+                    <li key={uuid()}><Link to='/notes'>Notes</Link></li>,
+                    <li key={uuid()}><Link to='/noteform'>Add Note</Link></li>
                 ]
             );
         } else {
             return (
                 [
-                    <li><Link to='/'>Login</Link></li>,
-                    <li><Link to='/registration'>Registration</Link></li>
+                    <li key={uuid()}><Link to='/'>Login</Link></li>,
+                    <li key={uuid()}><Link to='/registration'>Registration</Link></li>
                 ]
             );
         }

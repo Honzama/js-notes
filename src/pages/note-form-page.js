@@ -1,9 +1,9 @@
 import React from "react";
 import { Button, Form, Segment } from 'semantic-ui-react'
 import { Redirect } from 'react-router';
-import { addNode, editNode } from "../api";
+import { addNode, editNode } from "../db";
 import queryString from 'query-string';
-import {getNotesByID, getUserByID} from "../api";
+import {getNotesByID, getUserByID} from "../db";
 
 class NoteFormPage extends React.Component {
 

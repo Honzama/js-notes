@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Redirect } from 'react-router';
-import { getNotesByUsername } from "../api";
+import { getNotesByUsername } from "../db";
+import uuid from "uuid/v4";
+import {Header} from "../components";
 
 class NotesPage extends React.Component {
 
@@ -14,7 +16,7 @@ class NotesPage extends React.Component {
         if(notes.length > 0) {
             let notesList = new Array();
             for(let i = 0; i < notes.length; i++) {
-                notesList.push(<Link to={'/note?id='+notes[i].id}>{notes[i].title}</Link>);
+                notesList.push(<Link key={uuid()} to={'/note?id='+notes[i].id}>{notes[i].title}</Link>);
             }
 
             return(notesList);

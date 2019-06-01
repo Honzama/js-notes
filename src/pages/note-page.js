@@ -1,7 +1,7 @@
 import React from 'react'
 import { Redirect } from 'react-router';
 import queryString from 'query-string';
-import {getNotesByID, getUserByID, deleteNode} from "../api";
+import {getNotesByID, getUserByID, deleteNode} from "../db";
 
 class NotePage extends React.Component {
     state = {

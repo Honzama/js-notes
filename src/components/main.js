@@ -2,7 +2,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import {AccountPage, LoginPage, NoteFormPage, NotePage, NotesPage, RegistrationPage} from "../pages/index";
 import {Navigation} from "../components/index";
-import {loadFromLocalStorage, users} from "../api";
+import {loadFromLocalStorage, users} from "../db";
 
 class Main extends React.Component {
     state = {

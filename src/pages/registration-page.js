@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Form, Segment } from 'semantic-ui-react'
 import { Redirect } from 'react-router';
-import {addUser} from "../api";
+import {addUser} from "../db";
 
 class RegistrationPage extends React.Component {
 

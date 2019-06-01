@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Form, Segment } from 'semantic-ui-react'
 import { Redirect } from 'react-router';
-import {checkLogin} from "../api";
+import {checkLogin} from "../db";
 
 class LoginPage extends React.Component {
 
