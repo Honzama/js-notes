@@ -26,7 +26,7 @@ body header {
   width: 25%;
   height: auto;
   border-radius: 15px 15px 0 0;
-  background: url(public/arches.png);
+  background: url(arches.png);
   background-color: white;
 }
 body header svg {
@@ -40,7 +40,7 @@ body header #moto {
   margin-bottom: 1%;
 }
 body main {
-  background: url(public/arches.png);
+  background: url(arches.png);
   background-color: white;
   width: 100%;
   flex: auto;
@@ -173,7 +173,7 @@ body main #window #notes a {
   font-size: 125%;
 }
 body footer {
-  background: url(public/arches.png);
+  background: url(arches.png);
   background-color: white;
   text-align: center;
   width: auto;
