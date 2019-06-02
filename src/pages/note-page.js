@@ -9,7 +9,8 @@ class NotePage extends React.Component {
         id: "",
         exist: true,
         back: false,
-        edit: false
+        edit: false,
+        deletion: false
     };
 
     loadId() {
@@ -55,10 +56,31 @@ class NotePage extends React.Component {
     };
 
     clickDelete = () => {
+        this.state.deletion = !this.state.deletion;
+        this.forceUpdate();
+    };
+
+    clickYes = () => {
         deleteNode(this.state.id);
         this.state.back = true;
         this.forceUpdate();
     };
+
+    clickNo = () => {
+        this.state.deletion = !this.state.deletion;
+        this.forceUpdate();
+    };
+
+    deletionButtons() {
+        if(this.state.deletion) {
+            return(
+            <div id={"delete_buttons"}>
+                <button id={"yes"} onClick={this.clickYes}>Yes</button>
+                <button onClick={this.clickNo}>No</button>
+            </div>
+            );
+        }
+    }
 
     render() {
         console.log("---Rendering note page---");
@@ -94,6 +116,7 @@ class NotePage extends React.Component {
                     <button id={"invisible"} disabled>""</button>
                     <button id={"delete"} onClick={this.clickDelete}>Delete</button>
                 </div>
+                {this.deletionButtons()}
             </div>
         )
     }

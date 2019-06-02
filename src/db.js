@@ -97,6 +97,20 @@ export function addNode(title, text, username) {
     saveToLocalStorage();
 }
 
+export function deleteUser(username) {
+    for(let i =  0; i < users.length; i++) {
+        if(users[i].username === username) {
+            let temp_notes = getNotesByUsername(username);
+            for(let l = 0; l <temp_notes.length; l++) {
+                deleteNode(temp_notes[l].id);
+            }
+            users.splice(i, 1);
+            saveToLocalStorage();
+            return;
+        }
+    }
+}
+
 export function addUser(username, password, email) {
     users.push(
         {
